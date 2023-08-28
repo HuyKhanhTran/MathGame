@@ -191,9 +191,9 @@ struct Game1View: View {
                             }
                         }
                     }
-                    Text(gameLanguage == "english" ? "Score: \(score)" : "Điểm: \(score)")
+                    PrimaryButton(text: gameLanguage == "english" ? "Score: \(score)" : "Điểm: \(score)")
                         .font(.headline)
-                        .bold()
+                        .foregroundColor(.black)
                     
                 }
                 
