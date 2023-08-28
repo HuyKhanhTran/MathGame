@@ -8,6 +8,7 @@
 import SwiftUI
 import AVFoundation
 @available(iOS 15.0, *)
+@available(iOS 16.0, *)
 struct RegisterView: View {
    
     @AppStorage("isDarkMode") private var isDarkMode = false
@@ -44,6 +45,7 @@ struct RegisterView: View {
                         .padding(.horizontal)
                     NavigationLink(destination : destinationView){
                         PrimaryButton(text:(gameLanguage == "english" ? "Start" : "Bắt đầu"))
+                            .fontWeight(.heavy)
                     }
                     
                    
@@ -66,8 +68,8 @@ struct RegisterView: View {
                 }
                 .padding()
                 .background(Image("background1"))
-                .cornerRadius(75)
-                .shadow(radius: 10)
+                .cornerRadius(10)
+                .shadow(radius: 5)
         
                 
             }
@@ -90,6 +92,7 @@ struct RegisterView: View {
 }
 
 @available(iOS 15.0, *)
+@available(iOS 16.0, *)
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
         RegisterView(gameMode: "easy", gameLanguage: "english")

@@ -8,6 +8,7 @@
 import SwiftUI
 import AVFoundation
 @available(iOS 15.0, *)
+@available(iOS 16.0, *)
 struct Game2View: View {
     @Binding var userName: String
     @State private var correctAnswer = 0
@@ -54,7 +55,7 @@ struct Game2View: View {
             answerInCorrect = true
             //timeLeft = 10
         }
-            
+         winGame()
         
     }
     func losingGame(){
@@ -66,7 +67,14 @@ struct Game2View: View {
             
         }
     }
-    
+    func winGame(){
+        if score == 20{
+            saveHighScore(userName: userName, highestscore: highestScore)
+            
+            UserDefaults.standard.removeObject(forKey: "savedGameState")
+            isGameOver = true
+        }
+    }
     func saveHighScore(userName: String, highestscore: Int){
         if score > highestScore {
             highestScore = score
@@ -135,6 +143,7 @@ struct Game2View: View {
         answerList.append(correctAnswer1) // Append the correct answer
 
         choiceArray = answerList.shuffled()
+        winGame()
     }
 
 
@@ -161,7 +170,9 @@ struct Game2View: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                if isGameOver{
+                if score == 20 {
+                    WiningView(userName: $userName, highestScore: $highestScore, gameLanguage: gameLanguage)
+                } else if isGameOver{
                     GameOverView(userName: $userName, highestScore: $highestScore, gameLanguage: gameLanguage)
                 } else {
                     Text(gameLanguage=="english" ? "★Time Left: \(timeLeft)★" : "★Thời gian còn lại: \(timeLeft)★")
@@ -295,6 +306,7 @@ struct Game2View: View {
 }
 
 @available(iOS 15.0, *)
+@available(iOS 16.0, *)
 struct Game2View_Previews: PreviewProvider {
     static var previews: some View {
         Game2View(userName: .constant(""), gameLanguage: "english")

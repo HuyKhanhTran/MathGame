@@ -67,9 +67,8 @@ struct GameSettingView: View {
                             vietnameseIsClicked = false
                         } label: {
                             Text(englishIsClicked ? "English" : "Tiếng Anh")
-                                .foregroundColor(.red)
                                 .frame(width: (UIScreen.main.bounds.width - 50) / 2, height: 70)
-                                .background(RoundedRectangle(cornerRadius: 16).foregroundColor(englishIsClicked ? .red : .gray).opacity(0.5))
+                                .background(RoundedRectangle(cornerRadius: 16).foregroundColor(englishIsClicked ? Color("AccentColor") : .gray).opacity(0.5))
                         }
                         Button{
                             gameLanguage = "vietnamese"
@@ -77,9 +76,8 @@ struct GameSettingView: View {
                             vietnameseIsClicked = true
                         } label: {
                             Text(englishIsClicked ? "Vietnamese" : "Tiếng Việt")
-                                .foregroundColor(.red)
                                 .frame(width: (UIScreen.main.bounds.width - 50) / 2, height: 70)
-                                .background(RoundedRectangle(cornerRadius: 16).foregroundColor(vietnameseIsClicked ? .red : .gray).opacity(0.5))
+                                .background(RoundedRectangle(cornerRadius: 16).foregroundColor(vietnameseIsClicked ? Color("AccentColor") : .gray).opacity(0.5))
                         }
                     }
                     
@@ -94,9 +92,8 @@ struct GameSettingView: View {
                             hardIsClicked = false
                         } label: {
                             Text(englishIsClicked ? "Easy" : "Dễ")
-                                .foregroundColor(.red)
                                 .frame(width: (UIScreen.main.bounds.width - 50) / 3, height: 70)
-                                .background(RoundedRectangle(cornerRadius: 16).foregroundColor(easyIsClicked ? .red : .gray).opacity(0.5))
+                                .background(RoundedRectangle(cornerRadius: 16).foregroundColor(easyIsClicked ? Color("AccentColor") : .gray).opacity(0.5))
                             
                         }
                         
@@ -109,9 +106,8 @@ struct GameSettingView: View {
                             hardIsClicked = false
                         } label: {
                             Text(englishIsClicked ? "Medium" : "Trung bình")
-                                .foregroundColor(.red)
                                 .frame(width: (UIScreen.main.bounds.width - 50) / 3, height: 70)
-                                .background(RoundedRectangle(cornerRadius: 16).foregroundColor(mediumIsClicked ? .red : .gray).opacity(0.5))
+                                .background(RoundedRectangle(cornerRadius: 16).foregroundColor(mediumIsClicked ? Color("AccentColor") : .gray).opacity(0.5))
                         }
                         
                         Button {
@@ -121,9 +117,8 @@ struct GameSettingView: View {
                             mediumIsClicked = false
                         } label: {
                             Text(englishIsClicked ? "Hard" : "Khó")
-                                .foregroundColor(.red)
                                 .frame(width: (UIScreen.main.bounds.width - 50) / 3, height: 70)
-                                .background(RoundedRectangle(cornerRadius: 16).foregroundColor(hardIsClicked ? .red : .gray).opacity(0.5))
+                                .background(RoundedRectangle(cornerRadius: 16).foregroundColor(hardIsClicked ? Color("AccentColor") : .gray).opacity(0.5))
                         }
                         
                     }
@@ -141,9 +136,9 @@ struct GameSettingView: View {
                     isDarkMode.toggle() // Toggle dark mode setting
                 }) {
                     Image(systemName: isDarkMode ? "sun.max.fill" : "moon.fill")
-                        .foregroundColor(.red)
+                        .foregroundColor(.purple)
                         .frame(width: (UIScreen.main.bounds.width - 50) / 3, height: 70)
-                        .background(RoundedRectangle(cornerRadius: 16).foregroundColor(isDarkMode ? .red : .gray).opacity(0.5))
+                        .background(RoundedRectangle(cornerRadius: 16).foregroundColor(isDarkMode ? Color("AccentColor") : .gray).opacity(0.5))
                     
                 }.navigationTitle(englishIsClicked ? "Game Setting" : "Cài đặt")
                     .navigationBarBackButtonHidden(true)

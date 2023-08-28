@@ -8,6 +8,7 @@
 import SwiftUI
 import AVFoundation
 @available(iOS 15.0, *)
+@available(iOS 16.0, *)
 struct Game1View: View {
     @Binding var userName: String
     @State private var correctAnswer = 0
@@ -48,7 +49,7 @@ struct Game1View: View {
             answerInCorrect = true
             
         }
-            
+        winGame()
         
     }
     func losingGame(){
@@ -58,6 +59,14 @@ struct Game1View: View {
             UserDefaults.standard.removeObject(forKey: "savedGameState")
             isGameOver = true
             
+        }
+    }
+    func winGame(){
+        if score == 15{
+            saveHighScore(userName: userName, highestscore: highestScore)
+            
+            UserDefaults.standard.removeObject(forKey: "savedGameState")
+            isGameOver = true
         }
     }
     
@@ -106,6 +115,7 @@ struct Game1View: View {
         answerList.append(correctAnswer) // Append the correct answer
 
         choiceArray = answerList.shuffled()
+        winGame()
     }
 
 
@@ -132,8 +142,9 @@ struct Game1View: View {
             .edgesIgnoringSafeArea(.all)
             VStack {
                 
-                
-                if isGameOver{
+            if score == 15 {
+                WiningView(userName: $userName, highestScore: $highestScore, gameLanguage: gameLanguage)
+            }else if isGameOver{
                     GameOverView(userName: $userName, highestScore: $highestScore, gameLanguage: gameLanguage)
                 } else {
                     HStack{
@@ -247,6 +258,7 @@ struct Game1View: View {
 
 
 @available(iOS 15.0, *)
+@available(iOS 16.0, *)
 struct Game1View_Previews: PreviewProvider {
     static var previews: some View {
         Game1View(userName:.constant(""), gameLanguage: "english")

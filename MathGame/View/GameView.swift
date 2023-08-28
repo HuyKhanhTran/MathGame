@@ -10,7 +10,7 @@ import Foundation
 
 import AVFoundation
 @available(iOS 15.0, *)
-
+@available(iOS 16.0, *)
 
 struct GameView: View {
     
@@ -53,7 +53,7 @@ struct GameView: View {
             answerInCorrect = true
             
         }
-            
+        winGame()
         
     }
     func losingGame(){
@@ -65,7 +65,14 @@ struct GameView: View {
             
         }
     }
-    
+    func winGame(){
+        if score == 10{
+            saveHighScore(userName: userName, highestscore: highestScore)
+            
+            UserDefaults.standard.removeObject(forKey: "savedGameState")
+            isGameOver = true
+        }
+    }
     func saveHighScore(userName: String, highestscore: Int){
         if score > highestScore {
             highestScore = score
@@ -108,6 +115,7 @@ struct GameView: View {
         answerList.append(correctAnswer) // Append the correct answer
 
         choiceArray = answerList.shuffled()
+        winGame()
     }
 
 
@@ -136,9 +144,12 @@ struct GameView: View {
             VStack {
                 
                 
-                if isGameOver{
+                if score == 10 {
+                    WiningView(userName: $userName, highestScore: $highestScore, gameLanguage: gameLanguage)
+                } else if isGameOver {
                     GameOverView(userName: $userName, highestScore: $highestScore, gameLanguage: gameLanguage)
-                } else {
+                }
+                else {
                     HStack{
                         Text("HP:")
                             .font(.headline)
@@ -254,6 +265,7 @@ struct GameView: View {
 }
 
 @available(iOS 15.0, *)
+@available(iOS 16.0, *)
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
             GameView(userName: .constant(""), gameLanguage: "english")

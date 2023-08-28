@@ -8,8 +8,8 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
+@available(iOS 16.0, *)
 struct GameOverView: View {
-    //@Binding var score: Int
     @Binding var userName: String
     @Binding var highestScore: Int
     @State var gameLanguage: String
@@ -22,10 +22,11 @@ struct GameOverView: View {
             VStack {
                 Text(gameLanguage == "english" ? "Game Over!!!🙁" : "Trò chơi kết thúc!!!🙁")
                     .font(.title)
-                
+                    .fontWidth(.expanded)
                     .padding()
                 
                 Text(gameLanguage == "english" ? "Your name: \(userName)" : "Tên người chơi: \(userName)")
+                    .fontWeight(.light)
                     .padding()
                 Button {
                     ScoreManager.shared.addScore(userName: userName, score: highestScore)
@@ -35,13 +36,13 @@ struct GameOverView: View {
                 } label: {
                     
                     PrimaryButton(text: gameLanguage == "english" ? "Get your score😙: \(highestScore)" : "Nhận điểm của bạn 😙 : \(highestScore)")
+                        .fontWeight(.heavy)
                 }
                 
                 
             }
             .padding()
             .background(isDarkMode ? .black : .white)
-          
 
 
     }
@@ -49,6 +50,7 @@ struct GameOverView: View {
 }
 
 @available(iOS 15.0, *)
+@available(iOS 16.0, *)
 struct GameOverView_Previews: PreviewProvider {
     static var previews: some View {
         GameOverView(userName: .constant(""), highestScore: .constant(0), gameLanguage: "english")

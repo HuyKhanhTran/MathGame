@@ -78,7 +78,7 @@ struct HowToPlayView: View {
                 }
             }}
         .onAppear{
-            playSound(sound: "boss-intro-02-72039", type: "mp3")
+            playSound(sound: "intro-koto-japanese-style-66781", type: "mp3")
         }
         
     }

@@ -30,8 +30,8 @@
 		C8F36B162A9C6EB7002E58FA /* negative_beeps-6008.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F36B152A9C6EB7002E58FA /* negative_beeps-6008.mp3 */; };
 		C8F36B182A9C6EBF002E58FA /* sound-effect-twinklesparkle-115095.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F36B172A9C6EBF002E58FA /* sound-effect-twinklesparkle-115095.mp3 */; };
 		C8F36B1A2A9C6F78002E58FA /* intro-koto-japanese-style-66781.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F36B192A9C6F78002E58FA /* intro-koto-japanese-style-66781.mp3 */; };
-		C8F36B1E2A9C78EC002E58FA /* boss-intro-02-72039.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F36B1D2A9C78EB002E58FA /* boss-intro-02-72039.mp3 */; };
 		C8F36B222A9C7BBB002E58FA /* chill.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F36B212A9C7BBB002E58FA /* chill.mp3 */; };
+		C8F36B242A9C92FD002E58FA /* WiningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F36B232A9C92FD002E58FA /* WiningView.swift */; };
 		C8FE00482A930B8800479117 /* Game1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FE00472A930B8800479117 /* Game1View.swift */; };
 		C8FE004A2A930BDE00479117 /* Game2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FE00492A930BDE00479117 /* Game2View.swift */; };
 /* End PBXBuildFile section */
@@ -60,8 +60,8 @@
 		C8F36B152A9C6EB7002E58FA /* negative_beeps-6008.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "negative_beeps-6008.mp3"; sourceTree = "<group>"; };
 		C8F36B172A9C6EBF002E58FA /* sound-effect-twinklesparkle-115095.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-effect-twinklesparkle-115095.mp3"; sourceTree = "<group>"; };
 		C8F36B192A9C6F78002E58FA /* intro-koto-japanese-style-66781.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "intro-koto-japanese-style-66781.mp3"; sourceTree = "<group>"; };
-		C8F36B1D2A9C78EB002E58FA /* boss-intro-02-72039.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "boss-intro-02-72039.mp3"; sourceTree = "<group>"; };
 		C8F36B212A9C7BBB002E58FA /* chill.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chill.mp3; sourceTree = "<group>"; };
+		C8F36B232A9C92FD002E58FA /* WiningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiningView.swift; sourceTree = "<group>"; };
 		C8FE00472A930B8800479117 /* Game1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game1View.swift; sourceTree = "<group>"; };
 		C8FE00492A930BDE00479117 /* Game2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game2View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +125,7 @@
 				C8A4A1082A8F078F00C9EFC8 /* GameView.swift */,
 				C8FE00472A930B8800479117 /* Game1View.swift */,
 				C8FE00492A930BDE00479117 /* Game2View.swift */,
+				C8F36B232A9C92FD002E58FA /* WiningView.swift */,
 				C82CB2BD2A8F5ED700DB8E0F /* GameOverView.swift */,
 				C83C6C4E2A8F306400845D31 /* LeaderBoardView.swift */,
 				C83C6C502A8F31A300845D31 /* GameSettingView.swift */,
@@ -152,7 +153,6 @@
 				C8F36B172A9C6EBF002E58FA /* sound-effect-twinklesparkle-115095.mp3 */,
 				C8F36B152A9C6EB7002E58FA /* negative_beeps-6008.mp3 */,
 				C8F36B132A9C6EA8002E58FA /* interface-124464.mp3 */,
-				C8F36B1D2A9C78EB002E58FA /* boss-intro-02-72039.mp3 */,
 				C8F36B212A9C7BBB002E58FA /* chill.mp3 */,
 			);
 			path = Sound;
@@ -237,7 +237,6 @@
 				C8F36B162A9C6EB7002E58FA /* negative_beeps-6008.mp3 in Resources */,
 				C8F36B182A9C6EBF002E58FA /* sound-effect-twinklesparkle-115095.mp3 in Resources */,
 				C8F36B142A9C6EA8002E58FA /* interface-124464.mp3 in Resources */,
-				C8F36B1E2A9C78EC002E58FA /* boss-intro-02-72039.mp3 in Resources */,
 				C8F36B122A9C6E9C002E58FA /* game-start-6104.mp3 in Resources */,
 				C8F36B1A2A9C6F78002E58FA /* intro-koto-japanese-style-66781.mp3 in Resources */,
 				7AB4EA4727343B3B0052C568 /* Assets.xcassets in Resources */,
@@ -259,6 +258,7 @@
 				C8F22AE32A96E6BC007BC8F6 /* GameOperationAndState.swift in Sources */,
 				C85153E62A904DBA0059C0C2 /* ScoreData.swift in Sources */,
 				C83C6C472A8F15D300845D31 /* MenuView.swift in Sources */,
+				C8F36B242A9C92FD002E58FA /* WiningView.swift in Sources */,
 				C83C6C512A8F31A300845D31 /* GameSettingView.swift in Sources */,
 				7AB4EA4327343B3A0052C568 /* MathGameApp.swift in Sources */,
 				C8A4A1092A8F078F00C9EFC8 /* GameView.swift in Sources */,

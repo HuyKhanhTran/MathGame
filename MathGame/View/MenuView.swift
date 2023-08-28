@@ -4,10 +4,23 @@
 //
 //  Created by Khanh, Tran Huy on 18/08/2023.
 //
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2022B
+  Assessment: Assignment 2
+  Author: Tran Huy Khanh
+  ID: Your student id: s3804620
+  Created  date: 18/08/2023
+  Last modified: dd/mm/yyyy
+  Acknowledgement: SwiftUI, AVFoundation.
+*/
+
 
 import SwiftUI
 import AVFoundation
 @available(iOS 15.0, *)
+@available(iOS 16.0, *)
 struct MenuView: View {
     
     @StateObject private var leaderboardRefresh = LeaderboardRefresh()
@@ -32,7 +45,7 @@ struct MenuView: View {
                 }
                 ZStack{
                     //Color(.black).edgesIgnoringSafeArea(.all)
-                    Image("gameover")
+                    Image("gameover1")
                     
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -43,19 +56,24 @@ struct MenuView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 200, height: 100)
+                        
                         NavigationLink(destination: RegisterView(gameMode: gameMode, gameLanguage: gameLanguage)){
                             PrimaryButton(text: (gameLanguage == "english" ? "Let's play!😋" : "Cùng chơi nào!😋"))
+                                .fontWeight(.heavy)
                             
                         }
                         NavigationLink(destination: LeaderBoardView(gameLanguage: gameLanguage)){
                             PrimaryButton(text: (gameLanguage == "english" ? "Leader Board" : "Bảng điểm"))
+                                .fontWeight(.heavy)
                         }
                         
                         NavigationLink(destination: GameSettingView(gameMode: $gameMode, gameLanguage: $gameLanguage)){
                             PrimaryButton(text: (gameLanguage == "english" ? "Game Setting" : "Cài đặt trò chơi"))
+                                .fontWeight(.heavy)
                         }
                         NavigationLink(destination: HowToPlayView(gameLanguage: gameLanguage)){
                             PrimaryButton(text: (gameLanguage == "english" ? "How to play" : "Hướng dẫn chơi"))
+                                .fontWeight(.heavy)
                         }
                     }.padding()
                     
@@ -76,6 +94,7 @@ class LeaderboardRefresh: ObservableObject {
     @Published var refresh: Bool = false
 }
 @available(iOS 15.0, *)
+@available(iOS 16.0, *)
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
             MenuView(userName: .constant(""))
