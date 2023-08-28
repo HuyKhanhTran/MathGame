@@ -256,15 +256,7 @@ struct GameView: View {
 @available(iOS 15.0, *)
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
             GameView(userName: .constant(""), gameLanguage: "english")
-                .previewDevice(PreviewDevice(rawValue: "iPad Pro (11-inch) (4th generation)"))
-                .previewDisplayName("iPad Pro 11-inch")
-
-            GameView(userName: .constant(""), gameLanguage: "english")
-                .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (6th generation)"))
-                .previewDisplayName("iPad Pro 12.9-inch")
-        }
     }
 }
 
