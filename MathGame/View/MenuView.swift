@@ -60,7 +60,7 @@ struct MenuView: View {
                     }.padding()
                     
                 }.onAppear {
-                    playSound(sound: "music", type: "mp3")
+                    playSound(sound: "chill", type: "mp3")
                         
                 }
                 
