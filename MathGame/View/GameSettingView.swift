@@ -40,9 +40,9 @@ struct GameSettingView: View {
             }
         } else {
             if englishIsClicked == true {
-                description = "Perform calculations with natural numbers between 400 and 1000 with random calculation."
+                description = "Perform calculations with natural numbers between 400 and 1000 with random calculation😈."
             } else {
-                description = "Thực hiện các phép tính với số tự nhiên trong khoảng từ 400 đến 1000 với phép tính ngẫu nhiên."
+                description = "Thực hiện các phép tính với số tự nhiên trong khoảng từ 400 đến 1000 với phép tính ngẫu nhiên😈."
             }
         }
         
@@ -55,11 +55,24 @@ struct GameSettingView: View {
                 .aspectRatio(contentMode: .fill)
                 .edgesIgnoringSafeArea(.all)
             VStack{
-                VStack{
+                VStack(spacing: 25){
                     Image("logo")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 200, height: 100)
+                        .frame(width: 250, height: 150)
+                    Button(action: {
+                        isDarkMode.toggle() // Toggle dark mode setting
+                    }) {
+                        Image(systemName: isDarkMode ? "sun.max.fill" : "moon.fill")
+                            .foregroundColor(.purple)
+                            .frame(width: (UIScreen.main.bounds.width - 50) / 3, height: 50)
+                            .background(RoundedRectangle(cornerRadius: 16).foregroundColor(isDarkMode ? Color("AccentColor") : .gray).opacity(0.5))
+                        
+                    }
+                    Divider()
+                    Text(englishIsClicked ? "Language" : "Ngôn ngữ")
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
                     HStack{
                         Button{
                             gameLanguage = "english"
@@ -80,7 +93,7 @@ struct GameSettingView: View {
                                 .background(RoundedRectangle(cornerRadius: 16).foregroundColor(vietnameseIsClicked ? Color("AccentColor") : .gray).opacity(0.5))
                         }
                     }
-                    
+                    Divider()
                     Text(englishIsClicked ? "Difficulty" : "Độ khó")
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
@@ -92,7 +105,7 @@ struct GameSettingView: View {
                             hardIsClicked = false
                         } label: {
                             Text(englishIsClicked ? "Easy" : "Dễ")
-                                .frame(width: (UIScreen.main.bounds.width - 50) / 3, height: 70)
+                                .frame(width: (UIScreen.main.bounds.width - 70) / 3, height: 70)
                                 .background(RoundedRectangle(cornerRadius: 16).foregroundColor(easyIsClicked ? Color("AccentColor") : .gray).opacity(0.5))
                             
                         }
@@ -106,7 +119,7 @@ struct GameSettingView: View {
                             hardIsClicked = false
                         } label: {
                             Text(englishIsClicked ? "Medium" : "Trung bình")
-                                .frame(width: (UIScreen.main.bounds.width - 50) / 3, height: 70)
+                                .frame(width: (UIScreen.main.bounds.width - 70) / 3, height: 70)
                                 .background(RoundedRectangle(cornerRadius: 16).foregroundColor(mediumIsClicked ? Color("AccentColor") : .gray).opacity(0.5))
                         }
                         
@@ -117,7 +130,7 @@ struct GameSettingView: View {
                             mediumIsClicked = false
                         } label: {
                             Text(englishIsClicked ? "Hard" : "Khó")
-                                .frame(width: (UIScreen.main.bounds.width - 50) / 3, height: 70)
+                                .frame(width: (UIScreen.main.bounds.width - 70) / 3, height: 70)
                                 .background(RoundedRectangle(cornerRadius: 16).foregroundColor(hardIsClicked ? Color("AccentColor") : .gray).opacity(0.5))
                         }
                         
@@ -128,19 +141,15 @@ struct GameSettingView: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                     Text("\(loadDescription())")
-                        .multilineTextAlignment(.center).frame(width: UIScreen.main.bounds.width - 20, height: 100)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color("AccentColor"))
+                        .frame(width: UIScreen.main.bounds.width - 20, height: 100)
+                        .background(RoundedRectangle(cornerRadius: 16)
+                        .foregroundColor(.gray).opacity(0.5))
+                        
                     
                 }
-                
-                Button(action: {
-                    isDarkMode.toggle() // Toggle dark mode setting
-                }) {
-                    Image(systemName: isDarkMode ? "sun.max.fill" : "moon.fill")
-                        .foregroundColor(.purple)
-                        .frame(width: (UIScreen.main.bounds.width - 50) / 3, height: 70)
-                        .background(RoundedRectangle(cornerRadius: 16).foregroundColor(isDarkMode ? Color("AccentColor") : .gray).opacity(0.5))
-                    
-                }.navigationTitle(englishIsClicked ? "Game Setting" : "Cài đặt")
+                .navigationTitle(englishIsClicked ? "Game Setting" : "Cài đặt")
                     .navigationBarBackButtonHidden(true)
                     .toolbar{ToolbarItem(placement: ToolbarItemPlacement .navigationBarLeading) {
                         Button {
@@ -163,10 +172,10 @@ struct GameSettingView: View {
                         }
                     }
                 
-            }.padding()
-                .background(isDarkMode ? .black : .white)
-                .cornerRadius(10)
-                .shadow(radius: 5)
+            }.padding(50)
+            .background(isDarkMode ? .black : .white)
+            .frame(width: 300, height: 400)
+                
               
         }.opacity(0.9)
     }
