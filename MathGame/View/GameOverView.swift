@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import AVFoundation
 @available(iOS 15.0, *)
 @available(iOS 16.0, *)
 struct GameOverView: View {
@@ -16,7 +16,7 @@ struct GameOverView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var leaderboardRefresh: LeaderboardRefresh
     @AppStorage("isDarkMode") private var isDarkMode = false
-
+    @State private var audioPlayer: AVAudioPlayer?
   
     var body: some View {
             VStack {
@@ -40,6 +40,8 @@ struct GameOverView: View {
                 }
                 
                 
+            }.onAppear{
+                playSound(sound: "gameover-86548", type: "mp3")
             }
             .padding()
             .background(isDarkMode ? .black : .white)

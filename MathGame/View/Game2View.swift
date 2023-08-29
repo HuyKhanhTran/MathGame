@@ -233,7 +233,7 @@ struct Game2View: View {
                                 answerIsCorrect(answer: choiceArray[index])
                                 generateAnswers()
                             } label: {
-                                AnswerButton(number: Double(choiceArray[index]), isCorrect: true)
+                                AnswerButton(number: Int(Double(choiceArray[index])), isCorrect: true)
                             }
                         }
                     }
@@ -244,7 +244,7 @@ struct Game2View: View {
                                 answerIsCorrect(answer: choiceArray[index])
                                 generateAnswers()
                             } label: {
-                                AnswerButton(number: Double(choiceArray[index]), isCorrect: true)
+                                AnswerButton(number: Int(Double(choiceArray[index])), isCorrect: true)
                             }
                         }
                     }

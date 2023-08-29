@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 @available(iOS 15.0, *)
 @available(iOS 16.0, *)
 struct WiningView: View {
@@ -15,6 +16,7 @@ struct WiningView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var leaderboardRefresh: LeaderboardRefresh
     @AppStorage("isDarkMode") private var isDarkMode = false
+    @State private var audioPlayer: AVAudioPlayer?
     
     
     var body: some View {
@@ -38,6 +40,8 @@ struct WiningView: View {
                 PrimaryButton(text: gameLanguage == "english" ? "Get your score😙: \(highestScore)" : "Nhận điểm của bạn 😙 : \(highestScore)")
                     .fontWeight(.heavy)
             }
+        }.onAppear{
+            playSound(sound: "wining", type: "mp3")
         }
     }
 }

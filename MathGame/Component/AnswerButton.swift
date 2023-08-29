@@ -8,12 +8,12 @@
 import SwiftUI
 import AVFoundation
 struct AnswerButton: View {
-    var number : Double
+    var number : Int
     var isCorrect: Bool
     @State private var audioPlayer: AVAudioPlayer?
     var body: some View {
         VStack{
-            Text(String(format: "%.1f", number))
+            Text( "\(number)")
                 .frame(width: 150, height: 100)
                 .font(.system(size: 40, weight: .bold))
                 .foregroundColor(Color.white)
@@ -22,15 +22,8 @@ struct AnswerButton: View {
                 .cornerRadius(10)
                 .padding()
         }.onAppear {
-            if let soundURL = Bundle.main.url(forResource: "sound-effect-twinklesparkle-115095", withExtension: "mp3") {
-                do {
-                    audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                    audioPlayer?.play()
-                } catch {
-                    print("Error loading or playing sound effect:", error.localizedDescription)
-                }
+           playSound(sound: "sound-effect-twinklesparkle-115095", type: "mp3")
             }
-        }
       
     }
 }
