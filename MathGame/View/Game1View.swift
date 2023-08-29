@@ -75,7 +75,6 @@ struct Game1View: View {
             highestScore = score
             ScoreManager.shared.updateHighestScore(userName: userName, newScore: highestscore)
         }
-        //ScoreManager.shared.addScore(userName: userName, score: score)
         
     }
   
@@ -176,7 +175,8 @@ struct Game1View: View {
                     }
                     Text(gameLanguage == "english" ? "User name: \(userName)" : "Tên người chơi: \(userName)")
                         .font(.headline)
-                    Text("\(firstNumber) \(operation.rawValue) \(secondNumber)")
+                    PrimaryBorder(text: "\(firstNumber)\(operation.rawValue)\(secondNumber)")
+                        .foregroundColor(isDarkMode ? .white : .black)
                         .font(.largeTitle)
                         .bold()
                     

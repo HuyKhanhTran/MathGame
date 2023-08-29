@@ -222,7 +222,8 @@ struct Game2View: View {
                     }
                     Text(gameLanguage == "english" ? "User name: \(userName)" : "Tên người chơi: \(userName)")
                         .font(.headline)
-                    Text("( \(firstNumber) \(operation.rawValue) \(secondNumber) ) \(operation1.rawValue) \(thirdNumber)")
+                    PrimaryBorder(text:"( \(firstNumber) \(operation.rawValue) \(secondNumber) ) \(operation1.rawValue) \(thirdNumber)")
+                        .foregroundColor(isDarkMode ? .white : .black)
                         .font(.largeTitle)
                         .bold()
                     

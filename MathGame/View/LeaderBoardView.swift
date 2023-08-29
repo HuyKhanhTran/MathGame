@@ -24,19 +24,33 @@ struct LeaderBoardView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
 
     func getAchievementMessage(score: Int) -> String {
-        if score <= 10 && score > 0 {
-            return "gets new achievement in easy mode"
-        } else if score < 15 && score > 10 {
-            return "gets new achievement in medium mode"
-        } else if score < 20 && score > 15 {
-            return "gets new achievement in hard mode"
-        } else if score == 0 {
-            return "No achievement"
-        }
-        else {
-            return ""
+        if gameLanguage == "english" {
+            if score <= 10 && score > 0 {
+                return "gets new achievement in easy mode"
+            } else if score <= 15 && score > 10 {
+                return "gets new achievement in medium mode"
+            } else if score <= 20 && score > 15 {
+                return "gets new achievement in hard mode"
+            } else if score == 0 {
+                return "No achievement"
+            } else {
+                return ""
+            }
+        } else {
+            if score <= 10 && score > 0 {
+                return "nhận được thành tích mới trong chế độ dễ"
+            } else if score <= 15 && score > 10 {
+                return "nhận được thành tích mới trong chế độ trung bình"
+            } else if score <= 20 && score > 15 {
+                return "nhận được thành tích mới trong chế độ khó"
+            } else if score == 0 {
+                return "không có thành tích"
+            } else {
+                return ""
+            }
         }
     }
+
     func getRankColor(_ index: Int) -> Color {
         switch index {
         case 0:
@@ -76,7 +90,7 @@ struct LeaderBoardView: View {
                                 }
                             Spacer()
                             
-                            Text("Score: \(scores[index].score)")
+                            Text(gameLanguage == "english" ? "Score: \(scores[index].score)" : "Điểm: \(scores[index].score)")
                                 .font(.subheadline)
                                 .foregroundColor(isDarkMode ? .black : .white)
                                 .onTapGesture {
@@ -89,27 +103,35 @@ struct LeaderBoardView: View {
 
                     }
                     .sheet(isPresented: $showAchievementPopup, content: {
-                        VStack {
-                            Text("♕♕♕Achievement♕♕♕")
-                                .font(.title)
-                                .foregroundColor(Color("AccentColor"))
-                                .padding(.top, 20)
-                            
-                            Text("\(selectedUsername) \(selectedUserAchievementMessage)")
-                                .font(.headline)
-                                .foregroundColor(.green)
-                                .padding()
-                            Text("The correct answer: \(selectedUserScore)")
-                                .font(.headline)
-                                .foregroundColor(.green)
-                                .padding()
-                            Button(gameLanguage == "english" ? "Close" : "Đóng lại") {
-                                showAchievementPopup = false
-                            }
-                            .padding()
+                        ZStack{
+                            Image("gameover1")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .edgesIgnoringSafeArea(.all)
+                                .opacity(0.9)
+                            VStack {
+                                Text(gameLanguage == "english" ? "♕♕♕ Achievement ♕♕♕" : "♕♕♕ Thành tựu ♕♕♕")
+                                    .font(Font.custom("Arial", size: 24))
+                                    .foregroundColor(Color("AccentColor"))
+                                    .padding(.top, 20)
+                                
+                                Text("\(selectedUsername) \(selectedUserAchievementMessage)")
+                                    .font(Font.system(size: 15))
+                                    .foregroundColor(isDarkMode ? .black : .white)
+                                    .padding()
+                                Text(gameLanguage == "english" ? "The correct answer: \(selectedUserScore)" : "Câu trả lời đúng: \(selectedUserScore)")
+                                    .font(.headline)
+                                    .foregroundColor(isDarkMode ? .black : .white)
+                                    .padding()
+                                Button(gameLanguage == "english" ? "Close" : "Đóng lại") {
+                                    showAchievementPopup = false
+                                }.offset(x: 150)
+                                    .padding()
+                            }.frame(width: 400, height: 300)
+                            .background(isDarkMode ? .white : .black)
                         }
-                        .frame(width: 400, height: 250)
-                        .background(isDarkMode ? .white : .gray)
+                        //.frame(width: 400, height: 300)
+                        //.background(isDarkMode ? .white : .gray)
                     })
 
 
@@ -133,7 +155,7 @@ struct LeaderBoardView: View {
                     }
             }
             .opacity(0.9)
-            .background(Image("gameover")
+            .background(Image("gameover1")
                 .resizable()
                 .aspectRatio(contentMode: .fill))
         

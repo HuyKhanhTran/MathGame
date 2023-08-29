@@ -26,13 +26,13 @@
 		C8ADA5772A9D81070013C7C3 /* wining.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8ADA5762A9D81070013C7C3 /* wining.mp3 */; };
 		C8ADA5792A9D81B90013C7C3 /* gameover-86548.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8ADA5782A9D81B90013C7C3 /* gameover-86548.mp3 */; };
 		C8ADA57B2A9D866F0013C7C3 /* chill1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8ADA57A2A9D866F0013C7C3 /* chill1.mp3 */; };
+		C8ADA57D2A9DC3B40013C7C3 /* PrimaryBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ADA57C2A9DC3B40013C7C3 /* PrimaryBorder.swift */; };
 		C8EC709F2A920BD6001BBA1B /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EC709E2A920BD6001BBA1B /* HowToPlayView.swift */; };
 		C8F22AE32A96E6BC007BC8F6 /* GameOperationAndState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F22AE22A96E6BC007BC8F6 /* GameOperationAndState.swift */; };
 		C8F36B122A9C6E9C002E58FA /* game-start-6104.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F36B112A9C6E9C002E58FA /* game-start-6104.mp3 */; };
 		C8F36B142A9C6EA8002E58FA /* interface-124464.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F36B132A9C6EA8002E58FA /* interface-124464.mp3 */; };
 		C8F36B162A9C6EB7002E58FA /* negative_beeps-6008.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F36B152A9C6EB7002E58FA /* negative_beeps-6008.mp3 */; };
 		C8F36B182A9C6EBF002E58FA /* sound-effect-twinklesparkle-115095.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F36B172A9C6EBF002E58FA /* sound-effect-twinklesparkle-115095.mp3 */; };
-		C8F36B1A2A9C6F78002E58FA /* intro-koto-japanese-style-66781.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F36B192A9C6F78002E58FA /* intro-koto-japanese-style-66781.mp3 */; };
 		C8F36B222A9C7BBB002E58FA /* chill.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8F36B212A9C7BBB002E58FA /* chill.mp3 */; };
 		C8F36B242A9C92FD002E58FA /* WiningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F36B232A9C92FD002E58FA /* WiningView.swift */; };
 		C8FE00482A930B8800479117 /* Game1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FE00472A930B8800479117 /* Game1View.swift */; };
@@ -59,13 +59,13 @@
 		C8ADA5762A9D81070013C7C3 /* wining.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wining.mp3; sourceTree = "<group>"; };
 		C8ADA5782A9D81B90013C7C3 /* gameover-86548.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "gameover-86548.mp3"; sourceTree = "<group>"; };
 		C8ADA57A2A9D866F0013C7C3 /* chill1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chill1.mp3; sourceTree = "<group>"; };
+		C8ADA57C2A9DC3B40013C7C3 /* PrimaryBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryBorder.swift; sourceTree = "<group>"; };
 		C8EC709E2A920BD6001BBA1B /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
 		C8F22AE22A96E6BC007BC8F6 /* GameOperationAndState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOperationAndState.swift; sourceTree = "<group>"; };
 		C8F36B112A9C6E9C002E58FA /* game-start-6104.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game-start-6104.mp3"; sourceTree = "<group>"; };
 		C8F36B132A9C6EA8002E58FA /* interface-124464.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "interface-124464.mp3"; sourceTree = "<group>"; };
 		C8F36B152A9C6EB7002E58FA /* negative_beeps-6008.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "negative_beeps-6008.mp3"; sourceTree = "<group>"; };
 		C8F36B172A9C6EBF002E58FA /* sound-effect-twinklesparkle-115095.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-effect-twinklesparkle-115095.mp3"; sourceTree = "<group>"; };
-		C8F36B192A9C6F78002E58FA /* intro-koto-japanese-style-66781.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "intro-koto-japanese-style-66781.mp3"; sourceTree = "<group>"; };
 		C8F36B212A9C7BBB002E58FA /* chill.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chill.mp3; sourceTree = "<group>"; };
 		C8F36B232A9C92FD002E58FA /* WiningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiningView.swift; sourceTree = "<group>"; };
 		C8FE00472A930B8800479117 /* Game1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game1View.swift; sourceTree = "<group>"; };
@@ -147,6 +147,7 @@
 				7AB4EA5027343E9B0052C568 /* AnswerButton.swift */,
 				C83C6C532A8F327A00845D31 /* PrimaryButtin.swift */,
 				C80F1A4D2A9C439700391317 /* PlaySound.swift */,
+				C8ADA57C2A9DC3B40013C7C3 /* PrimaryBorder.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -154,7 +155,6 @@
 		C8428CB42A9B09C7000D607B /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				C8F36B192A9C6F78002E58FA /* intro-koto-japanese-style-66781.mp3 */,
 				C8F36B112A9C6E9C002E58FA /* game-start-6104.mp3 */,
 				C8F36B172A9C6EBF002E58FA /* sound-effect-twinklesparkle-115095.mp3 */,
 				C8F36B152A9C6EB7002E58FA /* negative_beeps-6008.mp3 */,
@@ -250,7 +250,6 @@
 				C8F36B182A9C6EBF002E58FA /* sound-effect-twinklesparkle-115095.mp3 in Resources */,
 				C8F36B142A9C6EA8002E58FA /* interface-124464.mp3 in Resources */,
 				C8F36B122A9C6E9C002E58FA /* game-start-6104.mp3 in Resources */,
-				C8F36B1A2A9C6F78002E58FA /* intro-koto-japanese-style-66781.mp3 in Resources */,
 				7AB4EA4727343B3B0052C568 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +276,7 @@
 				C83C6C432A8F150C00845D31 /* RegisterView.swift in Sources */,
 				C8FE004A2A930BDE00479117 /* Game2View.swift in Sources */,
 				C83C6C412A8F0A7000845D31 /* HealthBarView.swift in Sources */,
+				C8ADA57D2A9DC3B40013C7C3 /* PrimaryBorder.swift in Sources */,
 				C8EC709F2A920BD6001BBA1B /* HowToPlayView.swift in Sources */,
 				7AB4EA5127343E9B0052C568 /* AnswerButton.swift in Sources */,
 				C80F1A4E2A9C439800391317 /* PlaySound.swift in Sources */,

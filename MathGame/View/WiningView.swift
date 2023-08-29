@@ -21,7 +21,7 @@ struct WiningView: View {
     
     var body: some View {
         VStack{
-            Text(gameLanguage == "english" ? "You win this mode!!!🙁" : "Trò chơi kết thúc!!!🙁")
+            Text(gameLanguage == "english" ? "🥳You win this mode!!!" : "🥳Trò chơi kết thúc!!!")
                 .font(.title)
                 .fontWidth(.expanded)
                 .padding()

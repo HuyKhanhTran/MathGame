@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+
 @available(iOS 15.0, *)
 @available(iOS 16.0, *)
 struct RegisterView: View {
@@ -20,10 +21,10 @@ struct RegisterView: View {
     var body: some View {
         
         ZStack{
-                Image("gameover")
+                Image("gameover1")
                 
                     .resizable()
-                    //.aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fill)
                     .edgesIgnoringSafeArea(.all)
                 VStack(spacing: 20) {
                     Image("logo")
@@ -33,6 +34,7 @@ struct RegisterView: View {
 
                     Text(gameLanguage == "english" ? "User Registration" : "Đăng ký người chơi")
                         .foregroundColor(.black)
+                        .fontWeight(.heavy)
                     
                     TextField(gameLanguage == "english" ? "User name" : "Tên người chơi", text: $userName)
                         .frame(width: 200, height: 40)
@@ -47,7 +49,7 @@ struct RegisterView: View {
                         PrimaryButton(text:(gameLanguage == "english" ? "Start" : "Bắt đầu"))
                             .fontWeight(.heavy)
                     }
-                    
+                    .disabled(userName.isEmpty)
                    
                     
                 }.navigationTitle(gameLanguage == "english" ? "Register Player" : "Đăng nhập người chơi")

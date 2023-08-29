@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct PrimaryButton: View {
+    @AppStorage("isDarkMode") private var isDarkMode = false
     var text: String
     var background: Color = Color("AccentColor")
     
     var body: some View {
         VStack{
             Text(text)
-                .foregroundColor(.white)
+                .foregroundColor(isDarkMode ? .black : .white)
                 .padding()
                 .padding(.horizontal)
                 .background(background)
@@ -27,15 +28,9 @@ struct PrimaryButton: View {
 
 struct PrimaryButton_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+      
             PrimaryButton(text: "Hi")
-                .previewDevice(PreviewDevice(rawValue: "iPad Pro (11-inch) (4th generation)"))
-                .previewDisplayName("iPad Pro 11-inch")
-
-            PrimaryButton(text: "Hi")
-                .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (6th generation)"))
-                .previewDisplayName("iPad Pro 12.9-inch")
-        }
+              
     }
 }
 

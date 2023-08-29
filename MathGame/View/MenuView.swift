@@ -60,22 +60,28 @@ struct MenuView: View {
                         NavigationLink(destination: RegisterView(gameMode: gameMode, gameLanguage: gameLanguage)){
                             PrimaryButton(text: (gameLanguage == "english" ? "Let's play!😋" : "Cùng chơi nào!😋"))
                                 .fontWeight(.heavy)
+                               
                             
                         }
                         NavigationLink(destination: LeaderBoardView(gameLanguage: gameLanguage)){
                             PrimaryButton(text: (gameLanguage == "english" ? "Leader Board" : "Bảng điểm"))
                                 .fontWeight(.heavy)
+                               
                         }
                         
                         NavigationLink(destination: GameSettingView(gameMode: $gameMode, gameLanguage: $gameLanguage)){
                             PrimaryButton(text: (gameLanguage == "english" ? "Game Setting" : "Cài đặt trò chơi"))
                                 .fontWeight(.heavy)
+                                
                         }
                         NavigationLink(destination: HowToPlayView(gameLanguage: gameLanguage)){
                             PrimaryButton(text: (gameLanguage == "english" ? "How to play" : "Hướng dẫn chơi"))
                                 .fontWeight(.heavy)
+                                
                         }
-                    }.padding()
+                    }
+                    
+                    .padding()
                     
                 }.onAppear {
                     playSound(sound: "chill", type: "mp3")

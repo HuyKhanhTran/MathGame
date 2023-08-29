@@ -50,9 +50,9 @@ struct GameSettingView: View {
     }
     var body: some View {
         ZStack{
-            Image("gameover")
+            Image("gameover1")
                 .resizable()
-                .scaledToFill()
+                .aspectRatio(contentMode: .fill)
                 .edgesIgnoringSafeArea(.all)
             VStack{
                 VStack{
@@ -168,7 +168,7 @@ struct GameSettingView: View {
                 .cornerRadius(10)
                 .shadow(radius: 5)
               
-        }
+        }.opacity(0.9)
     }
 
 

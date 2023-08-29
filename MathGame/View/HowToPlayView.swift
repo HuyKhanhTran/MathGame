@@ -14,55 +14,59 @@ struct HowToPlayView: View {
     @State private var audioPlayer: AVAudioPlayer?
     var body: some View {
         VStack{
-                Image("logo1")
+                Image("logo")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 200, height: 100)
                 Form {
-                    Section(header: Text("How To Play")) {
-                        Text("⚀ Choose the game mode to play.")
+                    Section(header: Text(gameLanguage == "english" ? "How To Play" : "Cách chơi trò chơi") .font(Font.custom("Arial", size: 20)) . bold()) {
+                        Text(gameLanguage == "english" ? "⚀ Choose the game mode to play." : "Chọn chế độ chơi.")
+                            .foregroundColor(Color("AccentColor"))
                         Image("howtoplay")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                        Text("⚁ Regiser player's name.")
+                        Text(gameLanguage == "english" ? "⚁ Regiser player's name." : "Đăng nhập tên người chơi.")
+                            .foregroundColor(Color("AccentColor"))
                         Image("howtoplay1")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                        Text("⚂ Doing correctly answer the math problems given by the application.")
+                        Text(gameLanguage == "english" ? "⚂ Doing correctly answer the math problems given by the application." : "Chọn đúng câu trời toán học mà ứng dụng đưa ra.")
+                            .foregroundColor(Color("AccentColor"))
                         Image("howtoplay2")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                        Text("⚃ Trying to get the highest score.")
+                        Text(gameLanguage == "english" ? "⚃ Trying to get the highest score." : "Cố gắng đạt diểm cao nhất")
+                            .foregroundColor(Color("AccentColor"))
                         Image("howtoplay3")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                     }
-                    Section(header: Text("Application Information")) {
+                    Section(header: Text(gameLanguage == "english" ? "Application Information" : "Thông tin ứng dụng") .font(Font.custom("Arial", size: 20)) . bold()) {
                         HStack {
-                            Text("★ App Name")
+                            Text(gameLanguage == "english" ? "★ App Name" : "Tên ứng dụng")
                             Spacer()
                             Text("Math game")
-                        }
+                        }.foregroundColor(Color("AccentColor"))
                         HStack {
                             Text("★ Course")
                             Spacer()
                             Text("COSC2659")
-                        }
+                        }.foregroundColor(Color("AccentColor"))
                         HStack {
-                            Text("★ Year Published")
+                            Text(gameLanguage == "english" ? "★ Year Published" : "Năm công bố")
                             Spacer()
                             Text("2023")
-                        }
+                        }.foregroundColor(Color("AccentColor"))
                         HStack {
-                            Text("★ Location")
+                            Text(gameLanguage == "english" ? "★ Location" : "Địa điểm")
                             Spacer()
                             Text("Saigon South Campus")
-                        }
+                        }.foregroundColor(Color("AccentColor"))
                     }
                 }
             
         }.opacity(0.9)
-            .background(Image("gameover")
+            .background(Image("gameover1")
                 .resizable()
                 .aspectRatio(contentMode: .fill))
         .navigationTitle(gameLanguage == "english" ? "How to play" : "Hướng dẫn chơi")
