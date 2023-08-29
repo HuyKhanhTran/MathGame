@@ -130,8 +130,6 @@ struct LeaderBoardView: View {
                             }.frame(width: 400, height: 300)
                             .background(isDarkMode ? .white : .black)
                         }
-                        //.frame(width: 400, height: 300)
-                        //.background(isDarkMode ? .white : .gray)
                     })
 
 

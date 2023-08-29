@@ -283,19 +283,19 @@ struct Game2View: View {
             }
             .onChange(of: healthReduce) { newValue in
                 if newValue {
-                    audioPlayerIncorrect?.play() // Play the sound effect for health reduction
+                    audioPlayerIncorrect?.play() 
                 }
             }
             .onChange(of: answerCorrect) { newValue in
                 if newValue {
-                    audioPlayerCorrect?.play() // Play the sound effect for correct answer
-                    answerCorrect = false // Reset the state
+                    audioPlayerCorrect?.play()
+                    answerCorrect = false
                 }
             }
             .onChange(of: answerInCorrect) { newValue in
                 if newValue {
-                    audioPlayerIncorrect?.play() // Play the sound effect for incorrect answer
-                    answerInCorrect = false // Reset the state
+                    audioPlayerIncorrect?.play() 
+                    answerInCorrect = false
                 }
             }
             .padding()

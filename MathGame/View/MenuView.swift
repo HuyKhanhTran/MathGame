@@ -44,7 +44,6 @@ struct MenuView: View {
                     Color.white.edgesIgnoringSafeArea(.all)
                 }
                 ZStack{
-                    //Color(.black).edgesIgnoringSafeArea(.all)
                     Image("gameover1")
                     
                         .resizable()

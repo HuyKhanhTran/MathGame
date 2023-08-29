@@ -161,8 +161,6 @@ struct GameView: View {
                         Text(gameLanguage == "english" ? "Easy Mode" : "Chế độ dễ")
                             .font(.headline)
                         
-                        //Text("\(userName)")
-                        
                         
                         if UserDefaults.standard.data(forKey: "savedGameState") != nil {
                             Button {
