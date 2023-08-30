@@ -21,11 +21,16 @@ struct WiningView: View {
     
     var body: some View {
         VStack{
-            Text(gameLanguage == "english" ? "🥳You win this mode!!!" : "🥳Trò chơi kết thúc!!!")
-                .font(.title)
-                .fontWidth(.expanded)
-                .padding()
-            
+            HStack{
+                Text(gameLanguage == "english" ? "🥳You win this mode!!!" : "🥳Bạn đã chiến thắng!!")
+                    .font(.title)
+                    .fontWidth(.expanded)
+                    .padding()
+                Image("win")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+            }
             Text(gameLanguage == "english" ? "Your name: \(userName)" : "Tên người chơi: \(userName)")
                 .fontWeight(.light)
                 .padding()

@@ -119,10 +119,16 @@ struct LeaderBoardView: View {
                                     .font(Font.system(size: 15))
                                     .foregroundColor(isDarkMode ? .black : .white)
                                     .padding()
-                                Text(gameLanguage == "english" ? "The correct answer: \(selectedUserScore)" : "Câu trả lời đúng: \(selectedUserScore)")
-                                    .font(.headline)
-                                    .foregroundColor(isDarkMode ? .black : .white)
-                                    .padding()
+                                HStack{
+                                    Text(gameLanguage == "english" ? "The correct answer: \(selectedUserScore)" : "Câu trả lời đúng: \(selectedUserScore)")
+                                        .font(.headline)
+                                        .foregroundColor(isDarkMode ? .black : .white)
+                                        .padding()
+                                    Image("cup")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 100, height: 100)
+                                }
                                 Button(gameLanguage == "english" ? "Close" : "Đóng lại") {
                                     showAchievementPopup = false
                                 }.offset(x: 150)

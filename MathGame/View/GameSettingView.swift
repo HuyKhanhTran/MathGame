@@ -64,7 +64,7 @@ struct GameSettingView: View {
                         isDarkMode.toggle() // Toggle dark mode setting
                     }) {
                         Image(systemName: isDarkMode ? "sun.max.fill" : "moon.fill")
-                            .foregroundColor(.purple)
+                            .foregroundColor(Color("AccentColor"))
                             .frame(width: (UIScreen.main.bounds.width - 50) / 3, height: 50)
                             .background(RoundedRectangle(cornerRadius: 16).foregroundColor(isDarkMode ? Color("AccentColor") : .gray).opacity(0.5))
                         

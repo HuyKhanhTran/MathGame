@@ -19,12 +19,19 @@ struct GameOverView: View {
     @State private var audioPlayer: AVAudioPlayer?
   
     var body: some View {
+       
             VStack {
-                Text(gameLanguage == "english" ? "Game Over!!!🙁" : "Trò chơi kết thúc!!!🙁")
-                    .font(.title)
-                    .fontWidth(.expanded)
-                    .padding()
-                
+                HStack{
+                    Text(gameLanguage == "english" ? "Game Over!!!" : "Trò chơi kết thúc!!!")
+                        .font(.title)
+                        .fontWidth(.expanded)
+                        .padding()
+                    Image("tomb")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100, height: 100)
+                        
+                }
                 Text(gameLanguage == "english" ? "Your name: \(userName)" : "Tên người chơi: \(userName)")
                     .fontWeight(.light)
                     .padding()
@@ -35,12 +42,13 @@ struct GameOverView: View {
                     
                 } label: {
                     
-                    PrimaryButton(text: gameLanguage == "english" ? "Get your score😙: \(highestScore)" : "Nhận điểm của bạn 😙 : \(highestScore)")
+                    PrimaryButton(text: gameLanguage == "english" ? "Get your score😧: \(highestScore)" : "Nhận điểm của bạn 😧 : \(highestScore)")
                         .fontWeight(.heavy)
                 }
                 
                 
-            }.onAppear{
+            
+        }.onAppear{
                 playSound(sound: "gameover-86548", type: "mp3")
             }
             .padding()
