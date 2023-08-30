@@ -130,7 +130,7 @@ struct Game1View: View {
             score = gameState.score
             currentHealth = gameState.currentHealth
             isGameOver = false
-            generateAnswers()
+            //generateAnswers()
         }
     }
     var body: some View {

@@ -13,7 +13,7 @@ import AVFoundation
 struct RegisterView: View {
    
     @AppStorage("isDarkMode") private var isDarkMode = false
-    @State private var userName: String = ""
+    @State private var userName: String = "" // modify userName
     @State var gameMode: String
     @State var gameLanguage: String
     @Environment(\.dismiss) var dismiss
@@ -21,13 +21,13 @@ struct RegisterView: View {
     var body: some View {
         
         ZStack{
-                Image("gameover1")
+                Image("gameover1") //set background img for RegisterView
                 
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .edgesIgnoringSafeArea(.all)
                 VStack(spacing: 20) {
-                    Image("logo")
+                    Image("logo") //set logo for app game
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 200, height: 100)
@@ -36,7 +36,7 @@ struct RegisterView: View {
                         .foregroundColor(.black)
                         .fontWeight(.heavy)
                     
-                    TextField(gameLanguage == "english" ? "User name" : "Tên người chơi", text: $userName)
+                    TextField(gameLanguage == "english" ? "User name" : "Tên người chơi", text: $userName) // create the text field to enter userName
                         .frame(width: 200, height: 40)
                         .padding(.leading, 4.0)
                         .background(

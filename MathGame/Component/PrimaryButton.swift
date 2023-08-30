@@ -11,7 +11,8 @@ struct PrimaryButton: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
     var text: String
     var background: Color = Color("AccentColor")
-    
+   
+   
     var body: some View {
         VStack{
             Text(text)
@@ -21,6 +22,7 @@ struct PrimaryButton: View {
                 .background(background)
                 .cornerRadius(30)
                 .shadow(radius: 10)
+                
         }
         
     }

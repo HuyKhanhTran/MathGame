@@ -35,15 +35,15 @@ struct GameView: View {
     @State private var audioPlayerCorrect: AVAudioPlayer?
     @State private var audioPlayerIncorrect: AVAudioPlayer?
     @AppStorage("isDarkMode") private var isDarkMode = false
-    var answerList = [Double]()
+   
     
     func answerIsCorrect(answer: Int){
         print(currentHealth)
         if answer == correctAnswer {
-            self.score += 1
+            self.score += 1 // set the score +1 when have a correct answer
             answerCorrect = true
         } else {
-            currentHealth -= 1
+            currentHealth -= 1 // set currentHealth - 1 when have a incorrect answer
             
             healthReduce = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -57,7 +57,7 @@ struct GameView: View {
         
     }
     func losingGame(){
-        if currentHealth == 0{
+        if currentHealth == 0{ //set game over when currentHealth = 0
             saveHighScore(userName: userName, highestscore: highestScore)
             
             UserDefaults.standard.removeObject(forKey: "savedGameState")
@@ -67,15 +67,15 @@ struct GameView: View {
     }
     func winGame(){
         if score == 10{
-            saveHighScore(userName: userName, highestscore: highestScore)
+            saveHighScore(userName: userName, highestscore: highestScore) // make conditon for win game
             
             UserDefaults.standard.removeObject(forKey: "savedGameState")
             isGameOver = true
         }
     }
-    func saveHighScore(userName: String, highestscore: Int){
+    func saveHighScore(userName: String, highestscore: Int){ // function to save userName and score
         if score > highestScore {
-            highestScore = score
+            highestScore = score // make this codition to update the highest score
             ScoreManager.shared.updateHighestScore(userName: userName, newScore: highestscore)
         }
         
@@ -89,7 +89,7 @@ struct GameView: View {
         firstNumber = Int.random(in: 0...(points / 2))
         secondNumber = Int.random(in: 1...(points / 2))
 
-        if score < 5 {
+        if score < 5 { // set the game level higher when score < 5
                 operation = [.addition, .subtraction].randomElement() ?? .addition
             } else {
                 operation = MathOperation.random()
@@ -109,7 +109,7 @@ struct GameView: View {
         var answerList = [Int]()
 
         for _ in 0...2 {
-            answerList.append(Int.random(in: -points...points))
+            answerList.append(Int.random(in: -points...points)) // generate answer in negative and positive answer
         }
 
         answerList.append(correctAnswer) // Append the correct answer
@@ -119,19 +119,19 @@ struct GameView: View {
     }
 
 
-    func saveGameState() {
+    func saveGameState() {// func to save the state of game when playing
         let gameState = GameState(score: score, currentHealth: currentHealth)
         let data = try? JSONEncoder().encode(gameState)
         UserDefaults.standard.set(data, forKey: "savedGameState")
     }
 
-    func loadSavedGameState() {
+    func loadSavedGameState() {// func to load the game stateed that saved to continue
         if let data = UserDefaults.standard.data(forKey: "savedGameState"),
            let gameState = try? JSONDecoder().decode(GameState.self, from: data) {
             score = gameState.score
             currentHealth = gameState.currentHealth
             isGameOver = false
-            generateAnswers()
+            //generateAnswers()
         }
     }
 
@@ -184,7 +184,7 @@ struct GameView: View {
                         .foregroundColor(isDarkMode ? .white : .black)
                         .font(.largeTitle)
                         .bold()
-                    
+                        
                     
                     
                     HStack {
@@ -194,6 +194,7 @@ struct GameView: View {
                                 generateAnswers()
                             } label: {
                                 AnswerButton(number: Int(Double(choiceArray[index])), isCorrect: true)
+                                    .animation(Animation.spring(response: 0.3, dampingFraction: 0.2, blendDuration: 0.2))
                             }
                             
                         }
@@ -206,6 +207,7 @@ struct GameView: View {
                                 generateAnswers()
                             } label: {
                                 AnswerButton(number: Int(Double(choiceArray[index])), isCorrect: true)
+                                    .animation(Animation.spring(response: 0.3, dampingFraction: 0.2, blendDuration: 0.2))
                             }
                         }
                     }

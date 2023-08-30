@@ -177,7 +177,7 @@ struct GameSettingView: View {
             .frame(width: 300, height: 400)
                 
               
-        }.opacity(0.9)
+        }.opacity(0.6)
     }
 
 

@@ -44,38 +44,38 @@ struct MenuView: View {
                     Color.white.edgesIgnoringSafeArea(.all)
                 }
                 ZStack{
-                    Image("gameover1")
+                    Image("gameover1") //set background img for MenuView
                     
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.all)
                         .blur(radius: 1)
                     VStack(spacing: 35){
-                        Image("logo")
+                        Image("logo") // set logo for the app game
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 200, height: 100)
                         
                         NavigationLink(destination: RegisterView(gameMode: gameMode, gameLanguage: gameLanguage)){
-                            PrimaryButton(text: (gameLanguage == "english" ? "Let's play!😋" : "Cùng chơi nào!😋"))
+                            PrimaryButton(text: (gameLanguage == "english" ? "Let's play!😋" : "Cùng chơi nào!😋")) // Link to RegisterView
                                 .fontWeight(.heavy)
                                
                             
                         }
                         NavigationLink(destination: LeaderBoardView(gameLanguage: gameLanguage)){
                             PrimaryButton(text: (gameLanguage == "english" ? "Leader Board" : "Bảng điểm"))
-                                .fontWeight(.heavy)
+                                .fontWeight(.heavy) // Link to LeaderBoardView
                                
                         }
                         
                         NavigationLink(destination: GameSettingView(gameMode: $gameMode, gameLanguage: $gameLanguage)){
                             PrimaryButton(text: (gameLanguage == "english" ? "Game Setting" : "Cài đặt trò chơi"))
-                                .fontWeight(.heavy)
+                                .fontWeight(.heavy) // Link to GameSettingView
                                 
                         }
                         NavigationLink(destination: HowToPlayView(gameLanguage: gameLanguage)){
                             PrimaryButton(text: (gameLanguage == "english" ? "How to play" : "Hướng dẫn chơi"))
-                                .fontWeight(.heavy)
+                                .fontWeight(.heavy) // Link to HowToPlayView
                                 
                         }
                     }
@@ -83,14 +83,14 @@ struct MenuView: View {
                     .padding()
                     
                 }.onAppear {
-                    playSound(sound: "chill", type: "mp3")
+                    playSound(sound: "chill", type: "mp3") //set sound for Menuview
                         
                 }
                 
             }
-        }.navigationViewStyle(.stack)
+        }.navigationViewStyle(.stack) //help to set up view on Ipad interface
         .environmentObject(leaderboardRefresh)
-        .preferredColorScheme(isDarkMode ? .dark : .light)
+        .preferredColorScheme(isDarkMode ? .dark : .light)// set ColorScheme on dark/light mode
         
         
     }
