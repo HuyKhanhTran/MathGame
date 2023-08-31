@@ -190,11 +190,13 @@ struct GameView: View {
                     HStack {
                         ForEach(0..<2) {index in
                             Button {
-                                answerIsCorrect(answer: choiceArray[index])
-                                generateAnswers()
+                                withAnimation{
+                                    answerIsCorrect(answer: choiceArray[index])
+                                    generateAnswers()
+                                }
                             } label: {
-                                AnswerButton(number: Int(Double(choiceArray[index])), isCorrect: true)
-                                    .animation(Animation.spring(response: 0.3, dampingFraction: 0.2, blendDuration: 0.2))
+                                AnswerButton(number: Int(Double(choiceArray[index])), isCorrect: true, animation: Animation.spring(response: 0.3, dampingFraction: 0.2, blendDuration: 0.2))
+                                    
                             }
                             
                         }
@@ -203,11 +205,13 @@ struct GameView: View {
                     HStack {
                         ForEach(2..<4) {index in
                             Button {
-                                answerIsCorrect(answer: choiceArray[index])
-                                generateAnswers()
+                                withAnimation{
+                                    answerIsCorrect(answer: choiceArray[index])
+                                    generateAnswers()
+                                }
                             } label: {
-                                AnswerButton(number: Int(Double(choiceArray[index])), isCorrect: true)
-                                    .animation(Animation.spring(response: 0.3, dampingFraction: 0.2, blendDuration: 0.2))
+                                AnswerButton(number: Int(Double(choiceArray[index])), isCorrect: true, animation: Animation.spring(response: 0.3, dampingFraction: 0.2, blendDuration: 0.2))
+
                             }
                         }
                     }
