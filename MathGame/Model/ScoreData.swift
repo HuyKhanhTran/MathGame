@@ -6,24 +6,25 @@
 //
 
 import Foundation
-//import SwiftCSV
 import SwiftUI
+
+// A struct to hold user's score data
 struct ScoreData: Codable {
     var userName: String
     var score: Int
 }
-
+// A singleton class to manage user scores
 class ScoreManager {
     static let shared = ScoreManager() // Singleton instance
     
     private var scores: [ScoreData] = []
     private let scoresFileName = "scoredata.txt"
     
-    private init() {
+    private init() {// Private initializer to enforce singleton pattern and load scores
         loadScores()
     }
     
-    private func loadScores() {
+    private func loadScores() {  // Load scores from the file
         do {
             let fileURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
                 .appendingPathComponent(scoresFileName)
@@ -43,7 +44,7 @@ class ScoreManager {
         }
     }
     
-    private func saveScores() {
+    private func saveScores() { // Save scores to the file
         do {
             let fileURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 .appendingPathComponent(scoresFileName)
@@ -60,7 +61,7 @@ class ScoreManager {
         }
     }
     
-    func addScore(userName: String, score: Int) {
+    func addScore(userName: String, score: Int) {// Add a score to the manager
             if let existingScoreIndex = scores.firstIndex(where: { $0.userName == userName }) {
                 // Update the score for the existing user if it's higher
                 if score > scores[existingScoreIndex].score {
@@ -77,7 +78,7 @@ class ScoreManager {
     
 
 
-    func updateHighestScore(userName: String, newScore: Int) {
+    func updateHighestScore(userName: String, newScore: Int) { // Update the highest score for a user
         if let existingScoreIndex = scores.firstIndex(where: { $0.userName == userName }) {
             if newScore > scores[existingScoreIndex].score {
                 scores[existingScoreIndex].score = newScore
@@ -90,10 +91,10 @@ class ScoreManager {
     }
 
     
-    func getLeaderboard() -> [ScoreData] {
+    func getLeaderboard() -> [ScoreData] {// Get the leaderboard sorted by score
         return scores.sorted { $0.score > $1.score }
     }
-    func removeScore(userName: String) {
+    func removeScore(userName: String) { // Remove a user's score
         if let index = scores.firstIndex(where: { $0.userName == userName }) {
             scores.remove(at: index)
             saveScores()

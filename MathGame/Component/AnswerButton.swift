@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFoundation
 
-@available(iOS 15.0, *)
+@available(iOS 16.4, *)
 struct AnswerButton: View {
     var number: Int
     var isCorrect: Bool
@@ -33,7 +33,8 @@ struct AnswerButton: View {
     }
 }
 
-@available(iOS 15.0, *)
+
+@available(iOS 16.4, *)
 struct AnswerButton_Previews: PreviewProvider {
     static var previews: some View {
         AnswerButton(number: 1000, isCorrect: true, animation: .easeIn(duration: 0.6))

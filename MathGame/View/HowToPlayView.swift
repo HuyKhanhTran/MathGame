@@ -18,8 +18,8 @@ struct HowToPlayView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 200, height: 100)
-                Form {
-                    Section(header: Text(gameLanguage == "english" ? "How To Play" : "Cách chơi trò chơi") .font(Font.custom("Arial", size: 20)) . bold()) {
+                Form {// Form with instructions and app information
+                    Section(header: Text(gameLanguage == "english" ? "How To Play" : "Cách chơi trò chơi") .font(Font.custom("Arial", size: 20)) . bold()) {// How to play section
                         Text(gameLanguage == "english" ? "⚀ Choose the game mode to play." : "Chọn chế độ chơi.")
                             .foregroundColor(Color("AccentColor"))
                         Image("howtoplay")
@@ -41,7 +41,7 @@ struct HowToPlayView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                     }
-                    Section(header: Text(gameLanguage == "english" ? "Application Information" : "Thông tin ứng dụng") .font(Font.custom("Arial", size: 20)) . bold()) {
+                    Section(header: Text(gameLanguage == "english" ? "Application Information" : "Thông tin ứng dụng") .font(Font.custom("Arial", size: 20)) . bold()) {// Application information section
                         HStack {
                             Text(gameLanguage == "english" ? "★ App Name" : "Tên ứng dụng")
                             Spacer()
@@ -82,7 +82,7 @@ struct HowToPlayView: View {
                 }
             }}
         .onAppear{
-            playSound(sound: "chill1", type: "mp3")
+            playSound(sound: "chill1", type: "mp3")// Play sound on appear
         }
         
     }

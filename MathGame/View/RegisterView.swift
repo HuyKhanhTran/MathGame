@@ -37,6 +37,7 @@ struct RegisterView: View {
                         .fontWeight(.heavy)
                     
                     TextField(gameLanguage == "english" ? "User name" : "Tên người chơi", text: $userName) // create the text field to enter userName
+                        .disableAutocorrection(true)
                         .frame(width: 200, height: 40)
                         .padding(.leading, 4.0)
                         .background(

@@ -58,7 +58,7 @@ struct GameView: View {
     }
     func losingGame(){
         if currentHealth == 0{ //set game over when currentHealth = 0
-            saveHighScore(userName: userName, highestscore: highestScore)
+            saveHighScore(userName: userName, highestscore: highestScore)// make conditon for losing game
             
             UserDefaults.standard.removeObject(forKey: "savedGameState")
             isGameOver = true
@@ -102,6 +102,7 @@ struct GameView: View {
         case .multiplication:
             correctAnswer = firstNumber * secondNumber
         case .division:
+            // Handle division result not being a whole number
             divisionResult = Double(firstNumber) / Double(secondNumber)
             correctAnswer = Int(divisionResult)
         }
@@ -144,9 +145,9 @@ struct GameView: View {
             VStack {
                 
                 
-                if score == 10 {
+                if score == 10 { // set condition on View when user get eoungh score to win
                     WiningView(userName: $userName, highestScore: $highestScore, gameLanguage: gameLanguage)
-                } else if isGameOver {
+                } else if isGameOver {//set condition on View when user get currentHealth = 0, they lose game
                     GameOverView(userName: $userName, highestScore: $highestScore, gameLanguage: gameLanguage)
                 }
                 else {
@@ -234,8 +235,8 @@ struct GameView: View {
                         }
                     }}
                 .onAppear {
-                    if let correctSoundURL = Bundle.main.url(forResource: "sound-effect-twinklesparkle-115095", withExtension: "mp3"),
-                       let incorrectSoundURL = Bundle.main.url(forResource: "negative_beeps-6008", withExtension: "mp3") {
+                    if let correctSoundURL = Bundle.main.url(forResource: "sound-effect-twinklesparkle-115095", withExtension: "mp3"),// set sound effect when choose correct answer
+                       let incorrectSoundURL = Bundle.main.url(forResource: "negative_beeps-6008", withExtension: "mp3") { // set sound effect when choose incorrect answer
                         do {
                             audioPlayerCorrect = try AVAudioPlayer(contentsOf: correctSoundURL)
                             audioPlayerIncorrect = try AVAudioPlayer(contentsOf: incorrectSoundURL)
@@ -261,7 +262,7 @@ struct GameView: View {
                         audioPlayerIncorrect?.play() // Play the sound effect for incorrect answer
                         answerInCorrect = false // Reset the state
                     }
-                }.navigationViewStyle(.stack)
+                }
                 .padding()
                 .background(isDarkMode ? .black : .white)
                 .cornerRadius(10)

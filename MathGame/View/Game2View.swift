@@ -43,24 +43,24 @@ struct Game2View: View {
     func answerIsCorrect(answer: Int){
         print(currentHealth)
         if answer == correctAnswer1 {
-            self.score += 1
+            self.score += 1// set the score +1 when have a correct answer
             answerCorrect = true
         } else {
-            currentHealth -= 1
+            currentHealth -= 1// set currentHealth - 1 when have a incorrect answer
             healthReduce = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     healthReduce = false
             }
             losingGame()
             answerInCorrect = true
-            //timeLeft = 10
+            
         }
          winGame()
         
     }
     func losingGame(){
-        if currentHealth == 0{
-            saveHighScore(userName: userName, highestscore: highestScore)
+        if currentHealth == 0{//set game over when currentHealth = 0
+            saveHighScore(userName: userName, highestscore: highestScore)// make conditon for losing game
             
             UserDefaults.standard.removeObject(forKey: "savedGameState")
             isGameOver = true
@@ -68,19 +68,18 @@ struct Game2View: View {
         }
     }
     func winGame(){
-        if score == 20{
+        if score == 20{// make conditon for win game
             saveHighScore(userName: userName, highestscore: highestScore)
             
             UserDefaults.standard.removeObject(forKey: "savedGameState")
             isGameOver = true
         }
     }
-    func saveHighScore(userName: String, highestscore: Int){
+    func saveHighScore(userName: String, highestscore: Int){// function to save userName and score
         if score > highestScore {
-            highestScore = score
+            highestScore = score// make this codition to update the highest score
             ScoreManager.shared.updateHighestScore(userName: userName, newScore: highestscore)
         }
-        //ScoreManager.shared.addScore(userName: userName, score: score)
         
     }
   
@@ -93,7 +92,7 @@ struct Game2View: View {
         thirdNumber = Int.random(in: 1...(points / 2))
 
         
-        if score < 2 {
+        if score < 2 {// set the game level higher when score < 2
             operation = [.addition, .subtraction].randomElement() ?? .addition
         } else if score < 4 {
             operation = [.addition, .subtraction, .multiplication].randomElement() ?? .addition
@@ -137,7 +136,7 @@ struct Game2View: View {
         var answerList = [Int]()
 
         for _ in 0...2 {
-            answerList.append(Int.random(in: -points...points))
+            answerList.append(Int.random(in: -points...points))// generate answer in negative and positive answer
         }
 
         answerList.append(correctAnswer1) // Append the correct answer
@@ -147,19 +146,19 @@ struct Game2View: View {
     }
 
 
-    func saveGameState() {
+    func saveGameState() {// func to save the state of game when playing
         let gameState = GameState(score: score, currentHealth: currentHealth)
         let data = try? JSONEncoder().encode(gameState)
         UserDefaults.standard.set(data, forKey: "savedGameState")
     }
 
-    func loadSavedGameState() {
+    func loadSavedGameState() {// func to load the game stateed that saved to continue
         if let data = UserDefaults.standard.data(forKey: "savedGameState"),
            let gameState = try? JSONDecoder().decode(GameState.self, from: data) {
             score = gameState.score
             currentHealth = gameState.currentHealth
             isGameOver = false
-            //generateAnswers()
+            
         }
     }
     var body: some View {
@@ -170,9 +169,9 @@ struct Game2View: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                if score == 20 {
+                if score == 20 {// set condition on View when user get eoungh score to win
                     WiningView(userName: $userName, highestScore: $highestScore, gameLanguage: gameLanguage)
-                } else if isGameOver{
+                } else if isGameOver{//set condition on View when user get currentHealth = 0, they lose game
                     GameOverView(userName: $userName, highestScore: $highestScore, gameLanguage: gameLanguage)
                 } else {
                     Text(gameLanguage=="english" ? "★Time Left: \(timeLeft)★" : "★Thời gian còn lại: \(timeLeft)★")
@@ -272,8 +271,8 @@ struct Game2View: View {
                     }
                 }}
             .onAppear {
-                if let correctSoundURL = Bundle.main.url(forResource: "sound-effect-twinklesparkle-115095", withExtension: "mp3"),
-                   let incorrectSoundURL = Bundle.main.url(forResource: "negative_beeps-6008", withExtension: "mp3") {
+                if let correctSoundURL = Bundle.main.url(forResource: "sound-effect-twinklesparkle-115095", withExtension: "mp3"),// set sound effect when choose correct answer
+                   let incorrectSoundURL = Bundle.main.url(forResource: "negative_beeps-6008", withExtension: "mp3") {// set sound effect when choose incorrect answer
                     do {
                         audioPlayerCorrect = try AVAudioPlayer(contentsOf: correctSoundURL)
                         audioPlayerIncorrect = try AVAudioPlayer(contentsOf: incorrectSoundURL)
@@ -287,19 +286,19 @@ struct Game2View: View {
             }
             .onChange(of: healthReduce) { newValue in
                 if newValue {
-                    audioPlayerIncorrect?.play() 
+                    audioPlayerIncorrect?.play() // Play the sound effect for health reduction
                 }
             }
             .onChange(of: answerCorrect) { newValue in
                 if newValue {
-                    audioPlayerCorrect?.play()
-                    answerCorrect = false
+                    audioPlayerCorrect?.play()// Play the sound effect for correct answer
+                    answerCorrect = false// Reset the state
                 }
             }
             .onChange(of: answerInCorrect) { newValue in
                 if newValue {
-                    audioPlayerIncorrect?.play() 
-                    answerInCorrect = false
+                    audioPlayerIncorrect?.play() // Play the sound effect for incorrect answer
+                    answerInCorrect = false// Reset the state
                 }
             }
             .padding()

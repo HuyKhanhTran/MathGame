@@ -11,8 +11,8 @@ import AVFoundation
 
 
 struct LeaderBoardView: View {
-    @EnvironmentObject private var leaderboardRefresh: LeaderboardRefresh
-    let scores = ScoreManager.shared.getLeaderboard()
+    @EnvironmentObject private var leaderboardRefresh: LeaderboardRefresh// Environment object for refreshing leaderboard
+    let scores = ScoreManager.shared.getLeaderboard()// Fetch scores from the ScoreManager
     @State var gameLanguage: String
     @Environment(\.dismiss) var dismiss
     @State private var audioPlayer: AVAudioPlayer?
@@ -23,7 +23,7 @@ struct LeaderBoardView: View {
 
     @AppStorage("isDarkMode") private var isDarkMode = false
 
-    func getAchievementMessage(score: Int) -> String {
+    func getAchievementMessage(score: Int) -> String {// Function to get achievement message based on score
         if gameLanguage == "english" {
             if score <= 10 && score > 0 {
                 return "gets new achievement in easy mode"
@@ -51,7 +51,7 @@ struct LeaderBoardView: View {
         }
     }
 
-    func getRankColor(_ index: Int) -> Color {
+    func getRankColor(_ index: Int) -> Color {// Implementation for color based on index
         switch index {
         case 0:
             return .yellow
@@ -72,7 +72,7 @@ struct LeaderBoardView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 200, height: 100)
                 VStack{
-                    List(scores.indices, id: \.self) { index in
+                    List(scores.indices, id: \.self) { index in// Implementation for displaying each leaderboard entry
                         let achievementMessage = getAchievementMessage(score: scores[index].score)
                         HStack {
                             Text("\(index + 1).")
@@ -102,7 +102,7 @@ struct LeaderBoardView: View {
                         }.listRowBackground(getRankColor(index))
 
                     }
-                    .sheet(isPresented: $showAchievementPopup, content: {
+                    .sheet(isPresented: $showAchievementPopup, content: { // Achievement popup sheet
                         ZStack{
                             Image("gameover1")
                                 .resizable()
@@ -155,7 +155,7 @@ struct LeaderBoardView: View {
                         }
                     }}
                     .onAppear{
-                        playSound(sound: "chill1", type: "mp3")
+                        playSound(sound: "chill1", type: "mp3")// Play sound on appear
                     }
             }
             .opacity(0.9)

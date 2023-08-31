@@ -36,7 +36,7 @@ struct WiningView: View {
                 .padding()
             
             Button {
-                ScoreManager.shared.addScore(userName: userName, score: highestScore)
+                ScoreManager.shared.addScore(userName: userName, score: highestScore)//Button to save data when clicked
                 leaderboardRefresh.refresh = true
                 dismiss()
                 

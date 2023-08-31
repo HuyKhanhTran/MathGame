@@ -136,7 +136,6 @@
 				C83C6C4E2A8F306400845D31 /* LeaderBoardView.swift */,
 				C83C6C502A8F31A300845D31 /* GameSettingView.swift */,
 				C8EC709E2A920BD6001BBA1B /* HowToPlayView.swift */,
-				C83C6C402A8F0A7000845D31 /* HealthBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,6 +147,7 @@
 				C80F1A4D2A9C439700391317 /* PlaySound.swift */,
 				C8ADA57C2A9DC3B40013C7C3 /* PrimaryBorder.swift */,
 				C864E52C2A9DE1FF005ACB99 /* PrimaryButton.swift */,
+				C83C6C402A8F0A7000845D31 /* HealthBarView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";

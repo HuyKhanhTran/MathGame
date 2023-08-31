@@ -12,20 +12,23 @@ import AVFoundation
 struct GameSettingView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
     
-    @Binding var gameMode: String
+    @Binding var gameMode: String// Binding for game mode
+    
+    // App storage properties for different settings
     @AppStorage("easyIsClicked") var easyIsClicked: Bool = true
     @AppStorage("mediumIsClicked") var mediumIsClicked: Bool = false
     @AppStorage("hardIsClicked") var hardIsClicked: Bool = false
     @AppStorage("englishIsClicked") var englishIsClicked: Bool = true
     @AppStorage("vietnameseIsClicked") var vietnameseIsClicked: Bool = false
+    
     @State private var darkmode = false
     @Binding var gameLanguage: String
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) var dismiss
     @State private var audioPlayer: AVAudioPlayer?
-    func loadDescription() -> String {
+    func loadDescription() -> String {// Function to load description based on settings
         var description = ""
-        
+        // Implementation for loading description based on settings
         if easyIsClicked == true {
             if englishIsClicked == true {
                 description = "Perform calculations with natural numbers less than 100."
@@ -60,6 +63,7 @@ struct GameSettingView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 250, height: 150)
+                    // Dark mode toggle button
                     Button(action: {
                         isDarkMode.toggle() // Toggle dark mode setting
                     }) {
