@@ -4,7 +4,17 @@
 //
 //  Created by Khanh, Tran Huy on 20/08/2023.
 //
-
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2022B
+  Assessment: Assignment 2
+  Author: Tran Huy Khanh
+  ID: Your student id: s3804620
+  Created  date: 18/08/2023
+  Last modified: 05/09/2023
+  Acknowledgement: SwiftUI, AVFoundation.
+*/
 import SwiftUI
 import AVFoundation
 @available(iOS 15.0, *)

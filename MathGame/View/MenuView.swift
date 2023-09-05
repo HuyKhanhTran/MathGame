@@ -12,7 +12,7 @@
   Author: Tran Huy Khanh
   ID: Your student id: s3804620
   Created  date: 18/08/2023
-  Last modified: dd/mm/yyyy
+  Last modified: 05/09/2023
   Acknowledgement: SwiftUI, AVFoundation.
 */
 
